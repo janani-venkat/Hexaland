@@ -1,0 +1,46 @@
+<div class="justify-content-center">
+  <div class="my-5">
+    <form autocomplete="off">
+      <h4 class="head-color">Addition of new hexagon</h4>
+      <div class="form-group">
+        <label>
+          <h5>Hexagon Name (starts with HEX_(*alphabets a-z)) :</h5>
+          <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          <h5>Existing Hexagon Name (starts with HEX_(*alphabets a-z)) :</h5>
+          <input type="text" id="name" [(ngModel)]="existName" name="name" class="form-control">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          <h5>Edge between (0-5) :</h5>
+        </label>
+        <input type="text" id="edge" [(ngModel)]="edge" name="edge" class="form-control">
+      </div>
+      <button class="btn btn-sm btn-primary" (click)="addHexagon()">Add</button>
+    </form>
+  </div>
+  <div class="my-3">
+    <form autocomplete="off">
+      <h4 class="head-color">Getting all neighbours of hexagon</h4>
+      <div class="form-group">
+        <label>
+          <h5>Hexagon Name (starts with HEX_(*alphabets a-z)) :</h5>
+          <input type="text" id="Name" [(ngModel)]="selectedName" name="Name" class="form-control">
+        </label>
+      </div>
+      <div *ngIf="results && results.length > 0">
+        <h3>Hexagons :</h3>
+        <ul>
+          <li *ngFor="let item of results">
+            [{{item[1]}},{{item[0]}}]
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-sm btn-primary" (click)="getData()">Fetch</button>
+    </form>
+  </div>
+</div>
